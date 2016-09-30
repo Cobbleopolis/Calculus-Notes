@@ -1,0 +1,100 @@
+% !TEX root = ../main.tex
+
+\section{Rates of Change and The Derivative}
+A particle's rectilinear (1D) motion has its position defined by the function $s(t) = 5 - t^2$, where $s$ is measured in meters and $t$ in seconds.
+\begin{enumerate}
+    \item Sketch the graph of the function on the interval from $t = 0$ to $t = 4$.
+    \item Find the \textit{average} velocity over the time over the time interval from $t = 0$ to $t = 4$. On your graph, draw what this quantity represents.
+    \item Approximate the \textit{instantaneous} velocity when $t = 2$ by finding the average velocity over the intervals $t = 2$ to $t = 3$, $t = 2$ to $t = 2.5$, and $t = 2$ to $t = 2.1$.
+    \item Write a general expression that represents the average velocity over the time interval from $t = 2$ to $t = 2 + h$.
+    \item Find the instantaneous velocity when $t = 2$ by finding the limit of the above expression as $h \to 0$.
+\end{enumerate}
+Answers:
+\begin{enumerate}
+    \item \leavevmode\vadjust{\vspace{-\baselineskip}}\newline\begin{tikzpicture}
+    \begin{axis}[xmin=0, xmax=4, ymin=-10, ymax=10]
+        \addplot+ {5 - x^2};
+        \legend{$s(t) = 5 - t^2$};
+    \end{axis}
+    \end{tikzpicture}
+    \item \begin{gather*}
+        \dfrac{\Delta s}{\Delta t} \\
+        \dfrac{s(4) - s(0)}{4 - 0} \\
+        \dfrac{\left(5 - 4^2 \right) - \left(5 - 0^2\right)}{4} \\
+        \dfrac{-11 - 5}{4} \\
+        -4 [m/s]
+    \end{gather*}
+    \item \begin{itemize}
+        \item $t = 2$ to $t = 3$:\begin{gather*}
+            \dfrac{s(3) - s(2)}{3 - 2} \\
+            \dfrac{\left(5 - 3^2\right) - \left(5 - 2^2\right)}{1} \\
+            -5 [m/s]
+        \end{gather*}
+        \item $t = 2$ to $t = 2.5$:\begin{gather*}
+            \dfrac{s(2.5) - s(2)}{3 - 2} \\
+            \dfrac{\left(5 - 2.5^2\right) - \left(5 - 2^2\right)}{0.5} \\
+            -4.5 [m/s]
+        \end{gather*}
+        \item $t = 2$ to $t = 2.1$:\begin{gather*}
+            \dfrac{s(2.1) - s(2)}{3 - 2} \\
+            \dfrac{\left(5 - 2.1^2\right) - \left(5 - 2^2\right)}{0.1} \\
+            -4.1 [m/s]
+        \end{gather*}
+        \textit{Guess:} velocity \underline{at} $t = 2$ is approximately $4[m/s]$.
+    \end{itemize}
+    \item \begin{gather*}
+        \dfrac{s(2 + h) - s(2)}{2 + h - 2} \\
+        \dfrac{\left(5 - \left(2 + h\right)^2\right) - \left(5 - 2^2\right)}{h} \\
+        \dfrac{5 - \left(4 + 4h + h^2\right) - \left(1\right)}{h} \\
+        \dfrac{-4h - h^2}{h} \\
+        -4 - h
+    \end{gather*}
+    \item \begin{gather*}
+        \lim_{h \to 0} \left(\dfrac{s(2 + h) - s(2)}{h}\right) \\
+        \lim_{h \to 0} \left(-4 - h\right) \\
+        -4 - 0 \\
+        -4
+    \end{gather*}
+\end{enumerate}
+\subsection{Definitions}
+The slope of a curve can be found using the following equations:
+\begin{equation}
+    \lim_{x \to c} \left(\dfrac{f(x) - f(c)}{x - c}\right)
+\end{equation}
+\begin{equation}
+    \lim_{h \to 0} \left(\dfrac{f(c + h) - f(c)}{h}\right)
+\end{equation}
+These are also known as:
+\begin{itemize}
+    \item The \textit{instantaneous} velocity of an object at time $c$ whose position is given by the function $f(x)$.
+    \item The \textit{slope of the tangent line} to the curve $y = f(x)$ at $x = c$.
+    \item The \textit{instantaneous rate of change} of the function $f(x)$ at $x = c$.
+    \item The \textit{derivative} of $f$ at $c$.
+    \item $f'(c)$
+\end{itemize}
+\begin{example}
+    Find the slope of the line tangent to $y = \dfrac{1}{x + 5}$ when $x = 1$. Then find the equation for the tangent line at that point.
+    \begin{gather*}
+        \lim_{h \to 0} \left(\dfrac{f(1 + h) - f(1)}{h}\right) \\
+        \lim_{h \to 0} \left(\dfrac{\dfrac{1}{1 + h + 5} - \dfrac{1}{1 + 5}}{h}\right) \\
+        \lim_{h \to 0} \left(\dfrac{\left(\dfrac{6}{6} \cdot \dfrac{1}{1 + h + 5}\right) - \left(\dfrac{1}{1 + 5} \cdot \dfrac{6 + h}{6 + h}\right)}{h}\right) \\
+        \lim_{h \to 0} \left(\dfrac{\dfrac{6}{6\left(6 + h\right)} - \dfrac{6 + h}{6\left(6 + h\right)}}{h}\right) \\
+        \lim_{h \to 0} \left(\dfrac{\dfrac{-h}{6\left(6 + h\right)}}{h}\right) \\
+        \lim_{h \to 0} \left(\dfrac{1}{\cancel{h}} \cdot \dfrac{-\cancel{h}}{6\left(6 + h\right)}\right) \\
+        \lim_{h \to 0} \left(\dfrac{-1}{6\left(6 + h\right)}\right) \\
+        \dfrac{-1}{36}
+    \end{gather*}
+    Equation of line: We have the slope, all we need is a point (substitute $1$ in for $x$).
+    \begin{gather*}
+        y = \dfrac{1}{1 + 6}\\
+        y = \dfrac{1}{6}
+    \end{gather*}
+    So the point is $(1, \dfrac{1}{6})$.
+    Equation:
+    \begin{gather*}
+        y - \dfrac{1}{6} = -\dfrac{1}{36} \left(x - 1\right) \\
+        y = -\dfrac{1}{36}x + \dfrac{1}{36} + \dfrac{1}{6} \\
+        y = -\dfrac{1}{36}x + \dfrac{7}{36} \\
+    \end{gather*}
+\end{example}
+% TODO Add slide 11

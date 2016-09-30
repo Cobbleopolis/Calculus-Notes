@@ -1,0 +1,50 @@
+% !TEX root = main.tex
+\documentclass[12pt]{report}
+\usepackage[utf8]{inputenc}
+
+% Formatting
+\usepackage[mmddyyyy]{datetime}
+\usepackage{fullpage}
+
+%\usepackage{subfiles}
+
+\usepackage{xargs}
+
+
+% Math util stuff
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage[makeroom]{cancel}
+
+\usepackage{pgfplots}
+\pgfplotsset{compat=newest}
+\pgfplotsset{
+    axis lines=middle,
+    axis line style={<->},
+    every axis plot post/.append style={mark=none,samples=200,smooth},
+    unit vector ratio=1 1 1
+}
+
+\everymath{\displaystyle}
+
+% Theorem styling
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{corollary}{Corollary}[theorem]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{review}{Review}[section]
+
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}[section]
+\newtheorem{example}{Example}[theorem]
+
+\theoremstyle{remark}
+\newtheorem*{remark}{Remark}
+\newtheorem*{note}{Note}
+
+\newcommand*\diff{\mathop{}\!\mathrm{d}}
+\newcommand*\Diff[1]{\mathop{}\!\mathrm{d^#1}}
+
+\newcommandx*\deriv[2][1=, 2=x, usedefault]{\dfrac{\diff {#1}}{\diff {#2}}}
+
+\renewcommand{\partname}{Chapter}

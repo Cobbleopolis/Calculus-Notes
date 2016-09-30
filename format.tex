@@ -5,10 +5,12 @@
 % Formatting
 \usepackage[mmddyyyy]{datetime}
 \usepackage{fullpage}
+\usepackage{enumerate}
 
 %\usepackage{subfiles}
 
 \usepackage{xargs}
+\usepackage{xparse}
 
 
 % Math util stuff
@@ -42,9 +44,10 @@
 \newtheorem*{remark}{Remark}
 \newtheorem*{note}{Note}
 
-\newcommand*\diff{\mathop{}\!\mathrm{d}}
-\newcommand*\Diff[1]{\mathop{}\!\mathrm{d^#1}}
+\DeclareMathOperator{\di}{d\!}
 
-\newcommandx*\deriv[2][1=, 2=x, usedefault]{\dfrac{\diff {#1}}{\diff {#2}}}
+\newcommandx*\deriv[2][1=, 2=x, usedefault]{\dfrac{\di {#1}}{\di {#2}}}
+
+\DeclareDocumentCommand \Eval { m m O{} } { \left.#1\right\rvert_{#2}^{#3} }
 
 \renewcommand{\partname}{Chapter}

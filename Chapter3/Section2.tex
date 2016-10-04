@@ -19,7 +19,7 @@ Some curves' equations can't be solved for y (or maybe not easily), but we shoul
             \addplot +[red]{-sqrt(4 - x^2)};
             \legend{$y = \sqrt{4 - x^2}$, $y = -\sqrt{4 - x^2}$};
         \end{axis}
-    \end{tikzpicture}\\
+    \end{tikzpicture}
     Given an expression with $x$s and $y$s to find $\deriv[y]$
     \begin{enumerate}
         \item Treat $y$ as a function of $x$ and differentiate both sides of the equation with respect to $x$
@@ -32,7 +32,7 @@ Some curves' equations can't be solved for y (or maybe not easily), but we shoul
 \end{note}
 \begin{example}
     If $x^2 + y^2 = 4$ use implicit differentiation to find $\deriv[y]$
-    \begin{enumerate}[a)]
+    \begin{enumerate}[a\symbol{41}] % \symbol is used rather than `)' so chktex does not freak out
         \item \begin{gather*}
             \deriv \left(x^2 + y^2\right) = \deriv \left(4\right) \\
             2x + 2y\deriv[y] = 0 \\

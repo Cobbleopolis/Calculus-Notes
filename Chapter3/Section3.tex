@@ -1,0 +1,64 @@
+% !TEX root = ../main.tex
+
+\section{Derivatives of Logarithmic Functions}
+\begin{theorem}[Derivatives of Logarithmic Functions]
+    If we recall that $\log_a(x) = y$, then $a^y = x$ as well as $\deriv\left(a^x\right) = a^x \ln(a)$ then the following must be true:
+    \begin{equation}
+        \deriv \left(\log_a(x)\right) = \dfrac{1}{x\ln(a)}
+    \end{equation}
+\end{theorem}
+\begin{proof}
+    \begin{align*}
+        \log_a(x) &= y \\
+        a^y &= x \\
+        \deriv \left(a^y\right)    &= \deriv \left(x\right)\\
+        a^y \ln(a) \cdot \deriv[y] &= 1 \\
+        \deriv[y]                  &= \dfrac{1}{a^y \ln(a)} \\
+        \intertext{This is fine but we don't want $y$ in our answer.}
+        \deriv[y]                  &= \dfrac{1}{x \ln(a)} \\
+        \intertext{This is valid because we know that $a^y = x$}
+    \end{align*}
+\end{proof}
+What about $\deriv\left(\ln(x)\right)$?
+\begin{align*}
+    \deriv\left(\ln(x)\right) &= \deriv \left(\log_e(x)\right) \\
+                              &= \dfrac{1}{x\ln(e)} \\
+                              &= \dfrac{1}{x}
+\end{align*}
+\begin{note}
+    The power rule will never give an exponent of $-1$, since $n = 0$ would mean that it's a constant.
+\end{note}
+\begin{example}
+    Differentiate: $f(x) = \dfrac{x}{\ln(x)}$
+    \begin{align*}
+        f'(x) &= \dfrac{\left(\ln(x)\right)\deriv\left(x\right) - \left(x\right)\deriv\left(\ln(x)\right)}{\left(\ln(x)\right)^2} \\
+              &= \dfrac{\left(\ln(x)\right)\left(1\right) - \left(x\right)\left(\dfrac{1}{x}\right)}{\left(\ln(x)\right)^2} \\
+              &= \dfrac{\ln(x) - 1}{\left(\ln(x)\right)^2} \\
+              &= \dfrac{\ln(x)}{\left(\ln(x)\right)^2} - \dfrac{1}{\left(\ln(x)\right)^2} \tag{Optional} \\
+              &= \dfrac{1}{\ln(x)} - \dfrac{1}{\left(\ln(x)\right)^2} \tag{Optional}
+    \end{align*}
+\end{example}
+\begin{example}
+    Differentiate $y = \left|x\right|$
+    \begin{equation*}
+        y = \begin{cases}
+            \ln(x) & x > 0 \\
+            \ln(-x) & x < 0
+        \end{cases}
+    \end{equation*}
+    \begin{note}
+        Domain is all real number except 0
+    \end{note}
+    \begin{align*}
+        x  &> 0:           & x &< 0: \\
+        y  &= \ln(x)       & y &= \ln(-x) \\
+        y' &= \dfrac{1}{x} & y' &= \dfrac{1}{-x} \cdot \deriv \left(-x\right) \\
+           &               & y' &= \dfrac{1}{-x} \left(-1\right) \\
+           &               &    &= \dfrac{1}{x}
+    \end{align*}
+    Conclusion: because $y'$ was the same in both cases then the following must be true:
+    \begin{equation*}
+        \deriv\left(\ln(\left|x\right|)\right) = \dfrac{1}{x}
+    \end{equation*}
+\end{example}
+%TODO Finish section 3.3

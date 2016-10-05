@@ -1,6 +1,7 @@
 % !TEX root = ../main.tex
 
 \section{Derivatives of Logarithmic Functions}
+\subsection{Derivatives of Logarithmic Functions}
 \begin{theorem}[Derivatives of Logarithmic Functions]
     If we recall that $\log_a(x) = y$, then $a^y = x$ as well as $\deriv\left(a^x\right) = a^x \ln(a)$ then the following must be true:
     \begin{equation}
@@ -60,5 +61,23 @@ What about $\deriv\left(\ln(x)\right)$?
     \begin{equation*}
         \deriv\left(\ln(\left|x\right|)\right) = \dfrac{1}{x}
     \end{equation*}
+\end{example}
+\subsection{Logarithmic Differentiation}
+\subsubsection{Remember that question from the review?}
+\begin{equation*}
+    y = \left(\dfrac{x^4 \sin^2(x)}{\sqrt{1 - x^2}}\right)
+\end{equation*}
+Yeah that one. To derive this one normally would be a lot of chain, quotient, and power rules. However an esier way of taking the derivative by taking the natural log of both sides, then implicit derive of both sides and solve for $\deriv[y]$. This process is known as ``logarithmic differentiation''.
+\begin{example}
+    \begin{align*}
+        y &= \left(\dfrac{x^4 \sin^2(x)}{\sqrt{1 - x^2}}\right) \\
+        \ln(y) &= \ln\left(\dfrac{x^4 \sin^2(x)}{\left(1 - x^2\right)^{\frac{1}{2}}}\right) \\
+        \ln(y) &= \ln\left(x^4 \left(\sin^2(x)\right)\right) - \ln\left(1 - x^2\right)^{\frac{1}{2}} \\
+        \ln(y) &= \ln\left(x^4\right) + \ln\left(\sin(x)\right)^2 - \dfrac{1}{2}\ln\left(1 - x^2\right) \\
+        \ln(y) &= 4\ln\left(x\right) + 2\ln\left(\sin(x)\right) - \dfrac{1}{2}\ln\left(1 - x^2\right) \\
+        \dfrac{1}{y} \cdot \deriv[y] &= 4 \cdot \dfrac{1}{x} + 2 \dfrac{1}{\sin(x)} \cos(x) - \dfrac{1}{\cancel{2}} \cdot \dfrac{1}{1 - x^2} \cdot \cancel{2}x \\
+        \deriv[y] &= y \left(\dfrac{4}{x} + 2\cot(x) - \dfrac{x}{1 - x^2}\right) \\
+        \deriv[y] &= \dfrac{x^4 \sin^2(x)}{\sqrt{1 - x^2}} \left(\dfrac{4}{x} + 2\cot(x) - \dfrac{x}{1 - x^2}\right) \tag{Substitue the original function back in for $y$}
+    \end{align*}
 \end{example}
 %TODO Finish section 3.3

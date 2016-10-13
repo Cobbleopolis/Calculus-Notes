@@ -16,9 +16,16 @@
 
 
 % Math util stuff
-\usepackage{amsmath}
+% \usepackage{amsmath}
 \usepackage{amsthm}
 \usepackage[makeroom]{cancel}
+\usepackage{siunitx}
+\usepackage{mathtools} % loads asmmath
+
+\sisetup{
+    output-decimal-marker = {,},
+    per-mode = symbol
+}
 
 \usepackage{pgfplots}
 \pgfplotsset{compat=newest}

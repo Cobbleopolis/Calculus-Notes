@@ -1,0 +1,25 @@
+% !TEX root = ../main.tex
+
+\section{Related Rates}
+Problem asks for a rate of change of some quantity; use the rate of change of related quantities.
+\begin{example}
+    The volume of a right circular cone is given by
+    \begin{equation*}
+        V = \dfrac{1}{3}\pi r^2h
+    \end{equation*}
+    How does the volume change over time with respect to the change in height if $r$ is constant?
+    \begin{align*}
+        \deriv[][t]\left(V\right) &= \deriv[][t]\left(\dfrac{1}{3}\pi r^2 h\right) \\
+        1 \cdot \deriv[V][t] &= \underbrace{\dfrac{1}{3}\pi r^2}_\text{constant} \cdot 1 \cdot \deriv[h][t]
+    \end{align*}
+    How is $\deriv[V][t]$ related to $\deriv[r][t]$ if h is constant?
+
+\end{example}
+\subsection{Practice}
+If a snowball melts so that its surface area decreases at a rate of \SI{1}{\cm\squared\per\min}, find the rate at which the diameter decreases when the diameter is \SI{10}{\cm}. (Surface area of a sphere: $SA = 4\pi r^2$)
+%TODO draw picture
+\subsubsection{Solution}
+Variables we know:
+\begin{align*}
+    \deriv[SA][t] &= \SI{1}{\cubic\cm\per\min}
+\end{align*}

@@ -16,10 +16,36 @@ Problem asks for a rate of change of some quantity; use the rate of change of re
 
 \end{example}
 \subsection{Practice}
-If a snowball melts so that its surface area decreases at a rate of \SI{1}{\cm\squared\per\min}, find the rate at which the diameter decreases when the diameter is \SI{10}{\cm}. (Surface area of a sphere: $SA = 4\pi r^2$)
-%TODO draw picture
+If a snowball melts so that its surface area decreases at a rate of \SI{1}{\cm\squared\per\min}, find the rate at which the diameter decreases when the diameter is \SI{10}{\cm}. (Surface area of a sphere: $SA = 4\pi r^2$)\\
+\begin{tikzpicture}
+    \draw[<->] (0,3) -- (6,3) node[midway, above] {d};
+    \draw(3, 3) circle (3 cm);
+\end{tikzpicture}
 \subsubsection{Solution}
 Variables we know:
 \begin{align*}
+    d &= \text{ diameter} \\
+    SA &= \text{ surface area} \\
     \deriv[SA][t] &= \SI{1}{\cubic\cm\per\min}
 \end{align*}
+Variables we want:
+\begin{equation*}
+    \Eval{\deriv[d][t]}{d = \SI{10}{\cm}}
+\end{equation*}
+Equation:
+\begin{align*}
+    SA &= 4\pi r^2\\
+    SA &= 4\pi \left(\dfrac{d}{2}\right)^2 \\
+    SA &= \pi d^2
+\end{align*}
+Derive:
+\begin{equation*}
+    \deriv[SA][t] = \pi \cdot 2d \cdot \deriv[d][t]
+\end{equation*}
+Substitute:
+\begin{gather*}
+    \SI{1}{\cm\squared\per\min} = \pi \cdot 2\left(\SI{10}{\cm}\right) \cdot \deriv[d][t] \\
+    \deriv[d][t] = \dfrac{\SI{-1}{\cm\squared\per\min}}{\SI{20\pi}{\cm}} \\
+    \deriv[d][t] = \dfrac{-1}{20\pi}\text{ }\SI{}{\cm\per\min}
+\end{gather*}
+The diameter is decreasing at $\dfrac{-1}{20\pi}\text{ }\SI{}{\cm\per\min}$

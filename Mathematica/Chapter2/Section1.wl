@@ -1,2 +1,3 @@
-p1 = Plot[Sin[x], {x, 0, 10}]
-Export["test.png", p1]
+s[t_] = 5 - t ^ 2
+p1 = Plot[s[t], {t, -4, 4}]
+Export["answer.pdf", p1]

@@ -9,3 +9,37 @@ How do we solve equations like $x^3 - 4x + 2 = 0$?
     \item One such method id Newton's Method.
 \end{itemize}
 \subsection{Intermediate Value Theorem}
+\begin{theorem}[Intermediate Value Theorem]
+    If $f$ is continouts on $[a, b]$ and $N$ is between $f(a)$ and $f(b)$, then there is some $c \in (a, b)$ such that $f(c) = N$.
+    \begin{note}
+        $c \in (a, b)$ means that the value $c$ is between $a$ and $b$
+    \end{note}
+    \includegraphics[scale=0.75]{Chapter3/Section4/ivtGraph.pdf}\\
+\end{theorem}
+\subsection{The idea behind Newtom's Method}
+Suppose $f(x)$ is a polynomial.
+\begin{itemize}
+    \item Suppose we can apply the IVT to conclude that $f$ has a root between $a$ and $b$.
+    \item We pick any value, $c_1$, between $a$ nd $b$, and use that as our first guess of what the zero might be.
+    \item We probably won't be right because there are an infinite amount of numbers between $a$ and $b$.
+    \item We can evaluate $f(c_1)$ using a calculator.
+    \item We can find $f'(c_1)$ because we are awesome at derivatives\ldots right?
+\end{itemize}
+Because $c_1$ is an approximation and is probably wrong we need to be able to ge a more accruate estimate. To do that we take the tangent line of $f(c_1)$ and where it intersects the x-axis is $c_2$. Repeat the process to get a progressively more and more accurate estimate for the root of the function.
+\begin{center}
+    \includegraphics{Chapter3/Section4/newtonsMethod.pdf}
+\end{center}
+\subsection{A Recursive Formula}
+If $c_1$ is our first estimate the we can get a better approximation $c_2$ (called the ``second approximation'') by finding
+\begin{equation*}
+    c_2 = c_1 - \dfrac{f(c_1)}{f'(c_1)}
+\end{equation*}
+The third approximation is
+\begin{equation*}
+    c_3 = c_2 - \dfrac{f(c_2)}{f'(c_2)}
+\end{equation*}
+We can keep going to get the $n$th approximation
+\begin{equation*}
+    c_n = c_{n - 1} - \dfrac{f(c_{n - 1})}{f'(c_{n - 1})}
+\end{equation*}
+%TODO finish 3.4

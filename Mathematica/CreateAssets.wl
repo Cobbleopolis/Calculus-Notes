@@ -7,6 +7,7 @@ exec[dir_] := (
     FileSystemMap[Function[file, (
         ResetDirectory[]
         SetDirectory[FileNameJoin[{"images", Part[StringSplit[dir, "Mathematica\\"], -1], FileBaseName[file]}]]
+        Print[StringJoin[{"Running ", file, "..."}]]
         Get[file]
     )], dir]
 )

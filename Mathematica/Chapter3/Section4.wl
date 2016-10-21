@@ -1,13 +1,12 @@
 ivtGraph[x_] = CubeRoot[x - 3]
-ivtGraphArrow = Arrow[{{5.5, -1}, {3.5, -0.2}}]
-ivtGraphText = Text["Have to cross x-axis to \nconnect (a, f(a)) to (b, f(b))", {5.75, -1.1}, {-1, 0}]
 ivtGraphPlot = Plot[ivtGraph[x], {x, 2, 8},
     PlotRange -> {{0, 11}, {-1.5, 2}},
     PlotRangeClipping -> False,
     Ticks -> {{{2, "a"}, {8, "b"}}, {{ivtGraph[2], "f(a)"}, {ivtGraph[8], "f(b)"}}},
     Epilog -> {
-        ivtGraphArrow,
-        ivtGraphText
+        Arrow[{{5.5, -1}, {3.5, -0.2}}],
+        Text["Have to cross x-axis to \nconnect (a, f(a)) to (b, f(b))", {5.75, -1.1}, {-1, 0}],
+        PointSize[Large], ColorData[1][1], Point[{{2, ivtGraph[2]}, {8, ivtGraph[8]}}]
     }
 ]
 Export["ivtGraph.pdf", ivtGraphPlot]

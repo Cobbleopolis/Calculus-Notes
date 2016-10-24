@@ -13,7 +13,13 @@ Problem asks for a rate of change of some quantity; use the rate of change of re
         1 \cdot \deriv[V][t] &= \underbrace{\dfrac{1}{3}\pi r^2}_\text{constant} \cdot 1 \cdot \deriv[h][t]
     \end{align*}
     How is $\deriv[V][t]$ related to $\deriv[r][t]$ if h is constant?
-
+    \begin{equation*}
+        \deriv[V][t] = \underbrace{\dfrac{1}{3}\pi h}_\text{constant} \cdot 2r \cdot \deriv[r][t]
+    \end{equation*}
+    How is the volume changing over time if both the radius AND the height are changing?
+    \begin{equation*}
+        \deriv[V][t] = \underbrace{\dfrac{1}{3}\pi}_\text{constant}\left(r^2 \cdot \deriv[h][t] + 2r \cdot \deriv[r][t]h\right)
+    \end{equation*}
 \end{example}
 \subsection{Practice}
 If a snowball melts so that its surface area decreases at a rate of \SI{1}{\cm\squared\per\min}, find the rate at which the diameter decreases when the diameter is \SI{10}{\cm}. (Surface area of a sphere: $SA = 4\pi r^2$)\\
@@ -43,7 +49,66 @@ Substitute:
 \begin{gather*}
     \SI{1}{\cm\squared\per\min} = \pi \cdot 2\left(\SI{10}{\cm}\right) \cdot \deriv[d][t] \\
     \deriv[d][t] = \dfrac{\SI{-1}{\cm\squared\per\min}}{\SI{20\pi}{\cm}} \\
-    \deriv[d][t] = \dfrac{-1}{20\pi}\text{ }\SI{}{\cm\per\min}
+    \deriv[d][t] = \dfrac{-1}{20\pi}\text{ }\si{\cm\per\min}
 \end{gather*}
-The diameter is decreasing at $\dfrac{-1}{20\pi}\text{ }\SI{}{\cm\per\min}$
+The diameter is decreasing at $\dfrac{-1}{20\pi}\text{ }\si{\cm\per\min}$.\\
+%Skipping Example 1 from slides.
+\textbf{Important:} Be sure to analyze whether each peice of information given is a RATE or QUANTITY (distance, volume, etc).
+\begin{itemize}
+    \item \textbf{Rates} are ``d(blah)/dt''
+    \item \textbf{Other quantities} are NOT
+\end{itemize}
+\begin{itemize}
+    \item Remember to define your vairables!
+    \item Include units.
+    \item Answer the question! Don't just do the math.
+\end{itemize}
+\begin{example}
+    A $\SI{5}{\ft}$ ladder, leaning against a wall, slips so that its base moves away from the wall at a rate of $\SI{2}{\ft\per\sec}$. How fast will the top of the ladder be moving down the wall when the base is $\SI{4}{\ft}$ from the wall?
+    %TODO Create image.
+    \begin{align*}
+        x &= \text{base distance from the wall} \\
+        y &= \text{height of contact with wall} \\
+        \SI{5}{\ft} &= \text{Ladder length} \\
+        \deriv[x][t] &= \SI{2}{\ft\per\sec}
+    \end{align*}
+    We want $\deriv[y][t]$ when $x = \SI{4}{\ft}$.
+    \begin{note}
+        We will be expecting a negative value.
+    \end{note}
+    Equation relating information:
+    \begin{equation*}
+        x^2 + y^2 = \left(\SI{5}{\ft}\right)^2
+    \end{equation*}
+    \begin{note}
+        $\SI{5}{\ft}$ is a constant $x$ and $y$ are changing.
+    \end{note}
+    Take the derivetive with relation to $t$:
+    \begin{equation*}
+        2x \cdot \deriv[x][t] + 2y \cdot \deriv[y][t] = 0
+    \end{equation*}
+    \begin{note}
+        It makes sense that the equation is equal to $0$ because $\SI{5}{\ft}$ is constant.
+    \end{note}
+    Substitute:
+    \begin{equation*}
+        2\left(\SI{4}{\ft}\right)\left(\SI{2}{\ft\per\sec}\right) + 2\left(y\right)\deriv[y][t] = 0
+    \end{equation*}
+    We have two unknowns, $y$ and $\deriv[y][t]$, but we can find $y$ when $x = \SI{4}{\ft}$:
+    \begin{gather*}
+        x^2 + y^2 = \left(\SI{5}{\ft}\right)^2 \\
+        \left(\SI{4}{\ft}\right)^2 + y^2 = \SI{25}{\ft\squared} \\
+        y^2 = \SI{9}{\ft\squared} \\
+        y = \pm \SI{3}{\ft} \\
+        y = \SI{3}{\ft}
+    \end{gather*}
+    Now back to the substitution:
+    \begin{gather*}
+        2\left(\SI{4}{\ft}\right)\left(\SI{2}{\ft\per\sec}\right) + 2\left(\SI{3}{\ft}\right)\deriv[y][t] = 0 \\
+        \SI{16}{\ft\squared\per\sec} + \SI{6}{\ft} \cdot \deriv[y][t] = 0 \\
+        \deriv[y][t]\SI{6}{\ft} = \SI{-16}{\ft\squared\per\sec} \\
+        \deriv[y][t] = \dfrac{\SI{-16}{\ft\squared\per\sec}}{\SI{6}{\ft}} = -\dfrac{8}{3}\si{\ft\per\sec}
+    \end{gather*}
+    The ladder slides down at $\dfrac{8}{3}\si{\ft\per\sec}$.
+\end{example}
 %TODO finish 4.1

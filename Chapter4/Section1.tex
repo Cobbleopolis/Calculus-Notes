@@ -111,4 +111,38 @@ The diameter is decreasing at $\dfrac{-1}{20\pi}\text{ }\si{\cm\per\min}$.\\
     \end{gather*}
     The ladder slides down at $\dfrac{8}{3}\si{\ft\per\sec}$.
 \end{example}
+\begin{example}
+    Suppose ther is a camera mounted \SI{3000}{\ft} from the base of a rocket launching pad. Assume the rocket rises vertically and the camera is to take a series of photographs of the rocket. Because the rocket will be rising, the elevation angle of the camera will have to vary at just the right rate to keep the rocket in sight. Because the camera-to-rocket distance will be changing constantly, the camera focusing mechanism will also have to vary at just the right rate to keep the picture sharp. Suppose the rocket is rising vertically at a rate of $\SI{880}{\ft\per\sec}$ when it is $\SI{4000}{\ft}$ up. How fast is the camera-to-rocket distance changing at that instant?
+    %TODO create diagram
+    \begin{align*}
+        z &= \text{camera-to-rocket distance} \\
+        y &= \text{rocket height} \\
+        \deriv[y][t] &= \SI{880}{\ft\per\sec} \text{ when } y = \SI{4000}{\ft}
+    \end{align*}
+    We want $\deriv[z][t]$. \\
+    Equation:
+    \begin{equation*}
+        \left(\SI{3000}{\ft}\right)^2 + y^2 = z^2
+    \end{equation*}
+    \begin{note}
+        $y$ and $z$ are changing.
+    \end{note}
+    Derive with respect to $t$:
+    \begin{equation*}
+        0 + 2y \cdot \deriv[y][t] = 2z \cdot \deriv[z][t]
+    \end{equation*}
+    Substitute:
+    $z$ is replaced by finding:
+    \begin{gather*}
+        \left(\SI{3000}{\ft}\right)^2 + \left(\SI{4000}{\ft}\right)^2 = z^2 \\
+        z = \SI{5000}{\ft}
+    \end{gather*}
+    \begin{gather*}
+        2\left(\SI{4000}{\ft}\right) \cdot \SI{880}{\ft\per\sec} = 2\left(\SI{5000}{\ft}\right)\deriv[z][t] \\
+        \deriv[z][t] = \dfrac{2 \cdot 4000 \cdot \SI{880}{\ft\squared\per\sec}}{2 \cdot \SI{5000}{\ft}} \\
+        \deriv[z][t] = \SI{4.176}{\ft\per\sec} = \SI{704}{\ft\per\sec}
+    \end{gather*}
+    The distance from the camera to the rocket is increasing at $\SI{704}{\ft\per\sec}$.
+\end{example}
+%Skipping example 4
 %TODO finish 4.1

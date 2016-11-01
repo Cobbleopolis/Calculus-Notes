@@ -1,4 +1,6 @@
-ivtGraph[x_] = CubeRoot[x - 3]
+(* ::Package:: *)
+
+ivtGraph[x_] := CubeRoot[x - 3]
 ivtGraphPlot = Plot[ivtGraph[x], {x, 2, 8},
     PlotRange -> {{0, 11}, {-1.5, 2}},
     PlotRangeClipping -> False,
@@ -11,28 +13,25 @@ ivtGraphPlot = Plot[ivtGraph[x], {x, 2, 8},
 ]
 Export["ivtGraph.pdf", ivtGraphPlot]
 
-newtonsMethod[x_] = .5 x^2 - 3
-newtonsMethodC = {8, 8 - (newtonsMethod[8] / newtonsMethod'[8])}
-newtonsMethodPlot = Plot[newtonsMethod[x], {x, 0, 10},
+NewtonMethod[f_, c_, n_] := Nest[N[# - (f[#] / f'[#])]&, c, n - 1]
+newtonsMethodGraph[x_] := .5 x^2 - 3
+newtonsMethodC = Table[NewtonMethod[newtonsMethodGraph, 8, n], {n, 3}]
+newtonsMethodPlot = Plot[newtonsMethodGraph[x], {x, 0, 10},
     Epilog -> {
         PointSize[Large], Point[{2.5, 0}],
         Text[Style["The root", FontSize -> 18], {2.4, 0.5}, {1, -1}],
-        (*c1*)
-        ColorData[1][2], PointSize[Large], Point[{Part[newtonsMethodC, 1], 0}],
-        Text[Style[ToString[Subscript[c, 1], StandardForm], FontSize -> 24], {8, 0}, {0, 1}],
-        Dashed, Line[{{8, 0}, {8, newtonsMethod[8]}}],
-        (*c2*)
-        ColorData[1][3], PointSize[Large], Point[{Part[newtonsMethodC, 2], 0}],
-        Text[Style[ToString[Subscript[c, 2], StandardForm], FontSize -> 24], {Part[newtonsMethodC, 2], 0}, {0, 1}],
-        Dashed, Line[{{Part[newtonsMethodC, 2], 0}, {Part[newtonsMethodC, 2], newtonsMethod[Part[newtonsMethodC, 2]]}}],
-        (*c3*)
-        ColorData[1][4], PointSize[Large], Point[{(Part[newtonsMethodC, 2] - (newtonsMethod[Part[newtonsMethodC, 2]] / newtonsMethod'[Part[newtonsMethodC, 2]])), 0}],
-        Text[Style[ToString[Subscript[c, 3], StandardForm], FontSize -> 24], {(Part[newtonsMethodC, 2] - (newtonsMethod[Part[newtonsMethodC, 2]] / newtonsMethod'[Part[newtonsMethodC, 2]])), 0}, {0, 1}],
-        Dashed, Line[{{(Part[newtonsMethodC, 2] - (newtonsMethod[Part[newtonsMethodC, 2]] / newtonsMethod'[Part[newtonsMethodC, 2]])), 0}, {Part[newtonsMethodC, 2] - (newtonsMethod[Part[newtonsMethodC, 2]] / newtonsMethod'[Part[newtonsMethodC, 2]]), newtonsMethod[Part[newtonsMethodC, 2] - (newtonsMethod[Part[newtonsMethodC, 2]] / newtonsMethod'[Part[newtonsMethodC, 2]])]}}]
+        Table[
+            {
+                ColorData[1][n + 1], PointSize[Large], Point[{{newtonsMethodC[[n]], 0}, {newtonsMethodC[[n]], newtonsMethodGraph[newtonsMethodC[[n]]]}}],
+                Text[Style[ToString[Subscript[c, n], StandardForm], FontSize -> 24], {newtonsMethodC[[n]], 0}, {0, 1}],
+                Dashed, Line[{{newtonsMethodC[[n]], 0}, {newtonsMethodC[[n]], newtonsMethodGraph[newtonsMethodC[[n]]]}}],
+            }, {n, 3}
+        ]
     },
     Ticks -> None
 ]
+
 newtonsMethodPlotDeriv = MapIndexed[
-  Plot[newtonsMethod'[#1] x + (newtonsMethod[#1] - newtonsMethod'[#1] #1) , {x, 0, 10},
+  Plot[newtonsMethodGraph'[#1] x + (newtonsMethodGraph[#1] - newtonsMethodGraph'[#1] #1) , {x, 0, 10},
     PlotStyle -> ColorData[1][First[#2] + 1], Ticks -> None] &, newtonsMethodC]
 Export["newtonsMethod.pdf", Show[newtonsMethodPlot, newtonsMethodPlotDeriv]]

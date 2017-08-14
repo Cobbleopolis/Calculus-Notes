@@ -1,0 +1,34 @@
+{% extends 'base.html' %} {% block extrahead %}
+<script type='text/x-mathjax-config'>
+    MathJax.Hub.Config({
+        config: ['MMLorHTML.js'],
+        jax: ['input/TeX', 'output/MML'],
+        extensions: ['tex2jax.js'],
+        tex2jax: {
+            processEscapes: true,
+            inlineMath: [
+                ['$','$'],
+                ['\\(','\\)']
+            ],
+            displayMath: [
+                ['$$','$$'],
+                ['\[','\]']
+            ],
+            TagSide: 'right',
+            balanceBraces: true,
+            processRefs: true,
+            processEnvironments: true,
+            preview: ['[math]']
+        },
+        TeX: {
+            extensions: ['AMSmath.js', 'AMSsymbols.js', 'cancel.js'],
+            equationNumbers: {
+                autoNumber: 'ASM'
+            }
+        },
+        'HTML-CSS': {
+            avalableFonts: ['TeX']
+        }
+    });
+</script>
+{% endblock %}

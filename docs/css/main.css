@@ -1,0 +1,11 @@
+html, body {
+    font-family: serif
+}
+
+a:visited {
+    color: #2980B9;
+}
+
+.subtitle {
+    font-size: 0.65em
+}

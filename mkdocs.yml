@@ -1,0 +1,19 @@
+site_name: Calculus Notes
+theme: readthedocs
+theme_dir: 'theme'
+markdown_extensions:
+    - mdx_math:
+        enable_dollar_delimiter: True #for use of inline $..$
+        add_preview: True #so that the previews will render into the html document before MathJax has a chance to load
+    - fenced_code
+    - codehilite
+    - footnotes
+    - toc
+extra_css:
+    - 'css/main.css'
+extra_javascript:
+    - 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML'
+    - 'http://cdnjs.cloudflare.com/ajax/libs/mathjs/3.16.1/math.min.js'
+    - 'http://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js'
+    - 'https://cdnjs.cloudflare.com/ajax/libs/function-plot/1.18.1/function-plot.js'
+    - 'js/main.js'

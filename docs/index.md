@@ -11,7 +11,7 @@ This is a project to keep all of my notes for my Calculus I class together and o
 
 ## About this project
 
-This site is made using markdown compiled with MkDocs and uses [MathJax](https://www.mathjax.org/) to typeset mathmatics an uses the [Function Plot](https://mauriciopoppe.github.io/function-plot/) library on top of [D3.js](https://d3js.org/) to render graphs. All code for this project can be found on it's GitHub [here](https://github.com/Cobbleopolis/Calculus-Notes)
+This site is made using markdown compiled with MkDocs and uses [MathJax](https://www.mathjax.org/) to typeset mathmatics an uses the [Function Plot](https://mauriciopoppe.github.io/function-plot/) library on top of [D3.js](https://d3js.org/) to render graphs. All code for this project can be found on it's GitHub [here](https://github.com/Cobbleopolis/Calculus-Notes). Any issues in this project (innacuracies, grammar issues, spellin issues, etc.) should be reported [here](https://github.com/Cobbleopolis/Calculus-Notes/issues).
 
 $$
 \begin{align}
